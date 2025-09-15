@@ -153,3 +153,7 @@ charts/*.tgz
 
 # AWS
 .aws/
+
+# GitHub CLI
+gh_2.40.1_linux_amd64/
+gh.tar.gz
