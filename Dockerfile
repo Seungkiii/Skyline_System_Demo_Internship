@@ -1,13 +1,14 @@
 # 멀티스테이지 빌드: Frontend 빌드
-FROM node:18-alpine as frontend-build
+FROM node:18-alpine AS frontend-build
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
-RUN npm ci --only=production
+RUN npm install
 COPY frontend/ .
+RUN cp public/index.html index.html
 RUN npm run build
 
 # 멀티스테이지 빌드: Backend 빌드
-FROM maven:3.8.6-eclipse-temurin-17 as backend-build
+FROM maven:3.8.6-eclipse-temurin-17 AS backend-build
 WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline -B
