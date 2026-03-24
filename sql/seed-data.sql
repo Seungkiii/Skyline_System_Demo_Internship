@@ -1,7 +1,7 @@
 -- Skyline 항공예약시스템 초기 데이터
 
 -- 공항 데이터 삽입
-INSERT INTO airports (airport_code, airport_name, city, country) VALUES 
+INSERT IGNORE INTO airports (airport_code, airport_name, city, country) VALUES 
 -- 한국
 ('ICN', '인천국제공항', '서울', '대한민국'),
 ('GMP', '김포국제공항', '서울', '대한민국'),
@@ -42,7 +42,7 @@ INSERT INTO airports (airport_code, airport_name, city, country) VALUES
 ('AMS', '스키폴공항', '암스테르담', '네덜란드');
 
 -- 항공편 데이터 삽입 (향후 1개월간의 샘플 항공편)
-INSERT INTO flights (flight_number, departure_airport, arrival_airport, departure_time, arrival_time, aircraft_type, total_seats, available_seats, price) VALUES 
+INSERT IGNORE INTO flights (flight_number, departure_airport, arrival_airport, departure_time, arrival_time, aircraft_type, total_seats, available_seats, price) VALUES 
 
 -- 한국 - 일본 노선
 ('SK101', 'ICN', 'NRT', '2024-12-01 09:00:00', '2024-12-01 11:30:00', 'Boeing 737', 180, 150, 350000.00),
@@ -81,7 +81,7 @@ INSERT INTO flights (flight_number, departure_airport, arrival_airport, departur
 ('SK722', 'BKK', 'PUS', '2024-12-04 20:30:00', '2024-12-05 01:30:00', 'Airbus A330', 250, 150, 480000.00);
 
 -- 샘플 예약 데이터 (테스트용)
-INSERT INTO reservations (flight_id, passenger_name, passenger_email, passenger_phone, seat_number, status) VALUES 
+INSERT IGNORE INTO reservations (flight_id, passenger_name, passenger_email, passenger_phone, seat_number, status) VALUES 
 (1, '김철수', 'kim@example.com', '010-1234-5678', '1A', 'CONFIRMED'),
 (1, '박영희', 'park@example.com', '010-2345-6789', '1B', 'CONFIRMED'),
 (1, '이민수', 'lee@example.com', '010-3456-7890', '2A', 'CONFIRMED'),
