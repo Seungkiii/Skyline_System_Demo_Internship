@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Card, Row, Col, Statistic, Button, Space, Alert, Spin } from 'antd'
 import { PlusOutlined, SearchOutlined, BarChartOutlined, HeartOutlined } from '@ant-design/icons'
 import { flightAPI, reservationAPI, systemAPI } from '../services/api'
 import type { HealthStatus } from '../types'
 
 const HomePage: React.FC = () => {
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const [healthStatus, setHealthStatus] = useState<HealthStatus | null>(null)
   const [stats, setStats] = useState({
@@ -45,13 +47,13 @@ const HomePage: React.FC = () => {
   const handleQuickAction = (action: string) => {
     switch (action) {
       case 'search':
-        window.location.href = '/search'
+        navigate('/search')
         break
       case 'reservations':
-        window.location.href = '/reservations'
+        navigate('/reservations')
         break
       case 'dashboard':
-        window.location.href = '/dashboard'
+        navigate('/dashboard')
         break
     }
   }

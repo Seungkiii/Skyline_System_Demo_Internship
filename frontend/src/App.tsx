@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import { HomeOutlined, SearchOutlined, BookOutlined, BarChartOutlined } from '@ant-design/icons'
 import HomePage from './pages/HomePage'
@@ -10,6 +10,9 @@ import DashboardPage from './pages/DashboardPage'
 const { Header, Content, Footer } = Layout
 
 const App: React.FC = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const menuItems = [
     {
       key: '/',
@@ -40,10 +43,11 @@ const App: React.FC = () => {
         <Menu
           theme="dark"
           mode="horizontal"
+          selectedKeys={[location.pathname]}
           items={menuItems}
           style={{ marginLeft: 'auto', background: 'transparent' }}
           onClick={({ key }) => {
-            window.location.href = key
+            navigate(key)
           }}
         />
       </Header>
