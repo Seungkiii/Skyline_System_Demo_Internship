@@ -1,6 +1,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
+  namespace: skyline
   name: skyline-hpa
 spec:
   scaleTargetRef:

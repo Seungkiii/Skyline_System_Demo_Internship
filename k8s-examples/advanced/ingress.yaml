@@ -1,6 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  namespace: skyline
   name: skyline-ingress
   annotations:
     kubernetes.io/ingress.class: alb
@@ -10,6 +11,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
     alb.ingress.kubernetes.io/healthy-threshold-count: '2'
     alb.ingress.kubernetes.io/unhealthy-threshold-count: '3'
+    alb.ingress.kubernetes.io/tags: Environment=dev,Project=skyline-system-demo
 spec:
   rules:
   - host: skyline-demo.your-domain.com
