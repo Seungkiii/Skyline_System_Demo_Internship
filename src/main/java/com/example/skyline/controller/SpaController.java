@@ -22,4 +22,9 @@ public class SpaController {
     public String forward() {
         return "forward:/index.html";
     }
+
+    @RequestMapping("/metrics")
+    public String forwardMetrics() {
+        return "forward:/actuator/prometheus";
+    }
 }
